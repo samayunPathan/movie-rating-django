@@ -1,0 +1,49 @@
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class>
+    
+      <h5>Add New Movie</h5>
+      <button type="button"></button>
+    <div class="container">
+      <div class = "mb-3">
+        Insert Movie Info
+      </div>
+  
+        <form method = "POST", action = "{% url 'movie:add' %}">
+    <div class="input-group mb-3">
+    <span class="input-group-text">Name</span>
+    <input type="text" name="name">
+  </div>
+          <div class = "mb-3">
+          <select class="form-select" name="genre">
+    <option selected>Select Genre</option>
+            {% for g in genre%}
+    <option value={{g}}>{{g}}</option>
+    {% endfor %}
+  </select>
+            </div>
+          <div class = "mb-3">
+          <select class="form-select"  name = "ratings">
+    <option selected>Select Type of Rating</option>
+            {% for r in ratings%}
+    <option value={{r}}>{{r}}</option>
+    {% endfor %}
+  </select>
+              </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text" >Release Date</span>
+    <input placeholder="dd-mm-yyyy" type="text" class="form-control"  name="date">
+  </div>
+          <div class="input-group mb-3">
+    <span class="input-group-text" >Ratting(Out of 5)</span>
+    <input type="text" class="form-control" name="rate">
+  </div>
+  
+            <button type="submit" class="btn btn-primary">Add</button>
+            {% csrf_token %}
+  </form>
+  
+  </div>
+{% endblock %}

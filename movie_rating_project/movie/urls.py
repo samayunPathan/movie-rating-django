@@ -5,5 +5,9 @@ app_name='movie'
 
 
 urlpatterns = [
-    path('home/',views.home,name='home'),
+    path('',views.home,name='home'),
+    path('add/',views.add,name='add'),
+    path('search/',views.search_movies,name='search'),
+    path('search/<id>',views.search_movies,name='search_id'),
+    path('addrating/',views.add_rating,name='addrating'),
 ]

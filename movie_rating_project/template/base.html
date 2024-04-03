@@ -12,7 +12,7 @@
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <title>{% block title %} Blogs {% endblock %}</title>
+  <title>{% block title %} Movie {% endblock %}</title>
 </head>
 <body>
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -24,9 +24,7 @@
           @{{user.username}}
         </a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Write Blog</a>
-          <a class="dropdown-item" href="#">My Blogs</a>
-          <a class="dropdown-item" href="#">Your Profile</a>
+          
           <hr>
           <a class="dropdown-item" href="{% url 'app_login:user_logout' %}">Logout</a>
         </div>
@@ -38,6 +36,12 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Login</a>
       </li>
+    </form>
+    <form class="d-flex" role="search" method="POST" action="{% url 'movie:search' %}">
+      <input class="form-control me-2" type="search" placeholder="Search Movie" name="search_movie">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+      
+    </form>
       {% endif %}
     </ul>
   </nav>
