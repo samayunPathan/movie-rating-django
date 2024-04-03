@@ -43,6 +43,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'movie_rating_project.urls'
+AUTH_USER_MODEL='app_login.User'
 
 TEMPLATES = [
     {
