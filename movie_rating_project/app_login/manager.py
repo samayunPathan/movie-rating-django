@@ -1,3 +1,4 @@
+
 from django.contrib.auth.base_user import BaseUserManager
 
 class UserManager(BaseUserManager):
@@ -17,10 +18,11 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
     
-    def create_superuser(self,email,username,password):
+    def create_superuser(self,email,username,password,phone=123):
         
         user=self.create_user(email=self.normalize_email(email),
                         username=username,
+                        phone=phone,
                         password=password,
                         )
         user.is_admin=True
